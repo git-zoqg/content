@@ -1,0 +1,51 @@
+海雅 2018/08/31 11:03:39
+@全体成员 const App = React.createClass({
+   getDefaultProps:function(){
+       alert("getDefaultProps 1");
+       return {
+           name:"tom",
+           age:19
+       }
+       //this.props={name:"tom",age:19}
+   }, 
+   getInitialState:function(){
+      alert("getInitialState 2");
+      return {
+          message:"状态初始值哈哈"
+      }
+      //this.state={message:"状态初始值哈哈"}
+   },
+   componentWillMount:function(){
+       alert("componentWillMount 3");
+   },
+   handdleClick:function(){
+       this.setState({
+           message:"message值发生了改变嘻嘻嘻嘻"
+       })
+   },
+   render:function(){
+       alert("render 4");
+       return (
+           <div id="app">
+                this.props的值<p>姓名:{this.props.name} 年龄:{this.props.age} 性别:{this.props.sex}</p>
+                this.state的值<p>message的值{this.state.message}</p>
+                <input type="button" onClick={this.handdleClick}/>
+          </div>
+       )
+   },
+   componentDidMount:function(){
+       alert("componentDidMount 5");
+       console.log(document.getElementById("app"));
+   },
+   shouldComponentUpdate:function(nextProps,nextState){
+       alert("shouldComponentUpdate");
+       return false;
+   },
+   componentWillUpdate:function(){
+       alert("componentWillUpdate");
+   },
+   componentDidUpdate:function(){
+       alert("componentDidUpdate");
+   }
+});
+export default App;
